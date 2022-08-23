@@ -4,12 +4,14 @@ import 'package:listagem_geek/features/filmes/domain/usecases/preencher_lista_de
 import 'package:listagem_geek/features/filmes/external/datasources/filmes_datasource_impl.dart';
 import 'package:listagem_geek/features/filmes/infra/mapper/filme_mapper_impl.dart';
 import 'package:listagem_geek/features/filmes/infra/mapper/lista_filme_mapper_impl.dart';
+import 'package:listagem_geek/features/filmes/presenter/bloc/filmes_bloc.dart';
 
 import 'infra/repositories/filmes_repository_impl.dart';
 class FilmesModule extends Module {
   @override
 
   List<Bind<Object>> get binds => [
+    Bind((i) => FilmesBloc(iPreencherListaDeFilmesUsecase: i())),
     Bind<http.Client>((i) => http.Client(),),
     Bind((i) => FilmesDatasourceImpl(httpClient: i())),
     Bind((i) => FilmeMapperImpl()),
