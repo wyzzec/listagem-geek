@@ -1,9 +1,9 @@
 import 'filme_entity.dart';
 
-class ListaDeFilmes {
+class ListaFilmeEntity {
   final List<FilmeEntity> filmes;
 
-  ListaDeFilmes({
+  ListaFilmeEntity({
     required this.filmes,
   });
 }

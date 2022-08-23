@@ -10,12 +10,12 @@ class RepositoryMock extends Mock implements IFilmesRepository {}
 main () {
   final RepositoryMock repositoryMock = RepositoryMock();
   final PreencherListaDeFilmesUsecase preencherListaDeFilmesUsecase = PreencherListaDeFilmesUsecase(iFilmesRepository: repositoryMock);
-  final ListaDeFilmes listaDeFilmes = ListaDeFilmes(filmes: []);
+  final ListaFilmeEntity listaDeFilmes = ListaFilmeEntity(filmes: []);
   test('deve retornar uma lista de filmes', () async {
     when(() => repositoryMock.preencherLista()).thenAnswer((invocation) async => Right(listaDeFilmes));
     final response = await preencherListaDeFilmesUsecase();
     expect(response, isA<Right>());
-    expect(response.fold((l) => l, (r) => r), isA<ListaDeFilmes>());
+    expect(response.fold((l) => l, (r) => r), isA<ListaFilmeEntity>());
 
   });
 }

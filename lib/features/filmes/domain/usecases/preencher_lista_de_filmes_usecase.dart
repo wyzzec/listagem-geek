@@ -8,7 +8,7 @@ class PreencherListaDeFilmesUsecase implements IPreencherListaDeFilmesUsecase {
   final IFilmesRepository _iFilmesRepository;
 
   @override
-  Future<Either<IFilmesError, ListaDeFilmes>> call() async {
+  Future<Either<IFilmesError, ListaFilmeEntity>> call() async {
     return await _iFilmesRepository.preencherLista();
   }
 
