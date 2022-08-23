@@ -18,21 +18,21 @@ class FilmeDto {
 
   factory FilmeDto.fromMap(Map<String, dynamic> map) {
     return FilmeDto(title: map["title"],
-      episodeId: map["episodeId"],
-      openingCrawl: map["openingCrawl"],
+      episodeId: map["episode_id"],
+      openingCrawl: map["opening_crawl"],
       director: map["director"],
       producer: map["producer"],
-      releaseDate: map["releaseDate"],);
+      releaseDate: map["release_date"],);
   }
 
   Map<String, dynamic> toMap() {
     return {
       "title": title,
-      "episodeId": episodeId,
-      "openingCrawl": openingCrawl,
+      "episode_id": episodeId,
+      "opening_crawl": openingCrawl,
       "director": director,
       "producer": producer,
-      "releaseDate": releaseDate,
+      "release_date": releaseDate,
     };
   }
 }
