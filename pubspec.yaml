@@ -33,6 +33,9 @@ dependencies:
   flutter_modular:
   http:
   dartz:
+  path:
+  path_provider:
+  sqflite:
   flutter:
     sdk: flutter
 

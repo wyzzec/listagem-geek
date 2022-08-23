@@ -11,12 +11,12 @@ class FilmesModule extends Module {
   @override
 
   List<Bind<Object>> get binds => [
-    Bind((i) => FilmesBloc(iPreencherListaDeFilmesUsecase: i())),
-    Bind<http.Client>((i) => http.Client(),),
-    Bind((i) => FilmesDatasourceImpl(httpClient: i())),
-    Bind((i) => FilmeMapperImpl()),
-    Bind((i) => ListaFilmeMapperImpl(iFilmeMapper: i())),
-    Bind((i) => FilmesRepositoryImpl(iListaFilmeMapper: i(), iFilmesDatasource: i())),
-    Bind((i) => PreencherListaDeFilmesUsecase(iFilmesRepository: i())),
+    Bind((i) => FilmesBloc(iPreencherListaDeFilmesUsecase: i()), export: true),
+    Bind<http.Client>((i) => http.Client(),export: true),
+    Bind((i) => FilmesDatasourceImpl(httpClient: i()), export: true),
+    Bind((i) => FilmeMapperImpl(), export: true),
+    Bind((i) => ListaFilmeMapperImpl(iFilmeMapper: i()), export: true),
+    Bind((i) => FilmesRepositoryImpl(iListaFilmeMapper: i(), iFilmesDatasource: i()), export: true),
+    Bind((i) => PreencherListaDeFilmesUsecase(iFilmesRepository: i()), export: true),
   ];
 }
