@@ -1,9 +1,9 @@
 class PersonagemEntity {
   String nome;
-  String gender;
+  String genero;
 
   PersonagemEntity({
     required this.nome,
-    required this.gender,
+    required this.genero,
   });
 }
