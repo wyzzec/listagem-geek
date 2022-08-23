@@ -18,7 +18,7 @@ class FilmeDto {
 
   factory FilmeDto.fromMap(Map<String, dynamic> map) {
     return FilmeDto(title: map["title"],
-      episodeId: int.parse(map["episodeId"]),
+      episodeId: map["episodeId"],
       openingCrawl: map["openingCrawl"],
       director: map["director"],
       producer: map["producer"],
