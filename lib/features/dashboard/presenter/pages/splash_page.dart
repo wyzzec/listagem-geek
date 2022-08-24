@@ -15,10 +15,10 @@ class SplashPage extends StatefulWidget {
 class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
+    super.initState();
     widget.filmesBloc.add(PreencherListaFilmesEvent());
     widget.personagensBloc.add(PreencherPersonagensEvent());
     waitLoading();
-    super.initState();
   }
 
   @override
@@ -50,11 +50,12 @@ class _SplashPageState extends State<SplashPage> {
       ),
     );
   }
+
   void waitLoading() async {
     bool loading = true;
     do {
       await Future.delayed(const Duration(seconds: 1)).then((_) {
-        if (widget.personagensBloc.state is PersonagensSucess && widget.filmesBloc.state is FilmesSucess){
+        if (widget.personagensBloc.state is PersonagensSucess && widget.filmesBloc.state is FilmesSucess) {
           loading = false;
         }
       });
