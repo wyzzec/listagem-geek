@@ -2,9 +2,9 @@ import 'dart:convert';
 
 import 'package:dartz/dartz.dart' as dartz;
 import 'package:flutter_test/flutter_test.dart';
+import 'package:listagem_geek/app_module.dart';
 import 'package:listagem_geek/features/filmes/domain/entities/lista_filme_entity.dart';
 import 'package:listagem_geek/features/filmes/domain/usecases/i_preencher_lista_de_filmes_usecase.dart';
-import 'package:listagem_geek/features/filmes/filmes_module.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_modular/flutter_modular.dart';
@@ -21,7 +21,7 @@ void main () {
     registerFallbackValue(FakeUri());
   });
   final HttpMock httpMock = HttpMock();
-  initModule(FilmesModule(), replaceBinds: [
+  initModule(AppModule(), replaceBinds: [
     Bind.instance<http.Client>(httpMock),
   ]);
   FilmesMap filmesMap = FilmesMap();
