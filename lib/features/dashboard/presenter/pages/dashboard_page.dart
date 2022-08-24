@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:listagem_geek/features/filmes/presenter/widgets/filmes_widget.dart';
-import 'package:listagem_geek/features/personagens/presenter/widgets/personagens_widget.dart';
+import 'package:listagem_geek/features/dashboard/presenter/widgets/toggle_button_listas_widget.dart';
 
 class DashBoardPage extends StatefulWidget {
   const DashBoardPage({Key? key}) : super(key: key);
@@ -12,22 +11,15 @@ class DashBoardPage extends StatefulWidget {
 class _DashBoardPageState extends State<DashBoardPage> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(child: Scaffold(
+    return SafeArea(
+        child: Scaffold(
       appBar: AppBar(
         title: const Text('Listagem GEEK'),
         centerTitle: true,
       ),
       body: Column(
         children: [
-          Flexible(child: Container(
-              width: 500,
-              height: 500,
-              child: FilmesWidget())),
-          Flexible(child: Container(
-              width: 500,
-              height: 500,
-              child: PersonagensWidget())),
-
+          ToggleButtonListasWidget(),
         ],
       ),
     ));

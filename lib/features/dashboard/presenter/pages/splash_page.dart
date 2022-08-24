@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:listagem_geek/features/filmes/presenter/bloc/filmes_bloc.dart';
+import 'package:listagem_geek/features/personagens/presenter/bloc/personagens_bloc.dart';
+import '../../../personagens/presenter/bloc/personagens_bloc.dart';
 
 class SplashPage extends StatefulWidget {
-  const SplashPage({Key? key}) : super(key: key);
-
+  SplashPage({Key? key}) : super(key: key);
+  final filmesBloc = Modular.get<FilmesBloc>();
+  final personagensBloc = Modular.get<PersonagensBloc>();
   @override
   State<SplashPage> createState() => _SplashPageState();
 }
@@ -11,11 +15,9 @@ class SplashPage extends StatefulWidget {
 class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
-    Future.delayed(const Duration(seconds: 2)).then((_) {
-      Modular.to.navigate(
-        '/dashboardPage/',
-      );
-    });
+    widget.filmesBloc.add(PreencherListaFilmesEvent());
+    widget.personagensBloc.add(PreencherPersonagensEvent());
+    waitLoading();
     super.initState();
   }
 
@@ -30,8 +32,8 @@ class _SplashPageState extends State<SplashPage> {
             Expanded(
               child: Center(
                 child: SizedBox(
-                  width: 150,
-                  height: 150,
+                  width: 60,
+                  height: 60,
                   child: CircularProgressIndicator(),
                 ),
               ),
@@ -46,6 +48,19 @@ class _SplashPageState extends State<SplashPage> {
           ],
         ),
       ),
+    );
+  }
+  void waitLoading() async {
+    bool loading = true;
+    do {
+      await Future.delayed(const Duration(seconds: 1)).then((_) {
+        if (widget.personagensBloc.state is PersonagensSucess && widget.filmesBloc.state is FilmesSucess){
+          loading = false;
+        }
+      });
+    } while (loading);
+    Modular.to.navigate(
+      '/dashboardPage/',
     );
   }
 }
