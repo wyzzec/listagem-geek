@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:listagem_geek/features/filmes/presenter/widgets/filmes_widget.dart';
+import 'package:listagem_geek/features/personagens/presenter/widgets/personagens_widget.dart';
 
 class DashBoardPage extends StatefulWidget {
   const DashBoardPage({Key? key}) : super(key: key);
@@ -21,7 +22,12 @@ class _DashBoardPageState extends State<DashBoardPage> {
           Flexible(child: Container(
               width: 500,
               height: 500,
-              child: FilmesWidget()))
+              child: FilmesWidget())),
+          Flexible(child: Container(
+              width: 500,
+              height: 500,
+              child: PersonagensWidget())),
+
         ],
       ),
     ));

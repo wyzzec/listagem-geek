@@ -11,7 +11,7 @@ class FilmesModule extends Module {
   @override
 
   List<Bind<Object>> get binds => [
-    Bind((i) => FilmesBloc(iPreencherListaDeFilmesUsecase: i()), export: true),
+    Bind.singleton((i) => FilmesBloc(iPreencherListaDeFilmesUsecase: i()), export: true),
     Bind<http.Client>((i) => http.Client(),export: true),
     Bind((i) => FilmesDatasourceImpl(httpClient: i()), export: true),
     Bind((i) => FilmeMapperImpl(), export: true),
