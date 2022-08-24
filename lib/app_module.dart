@@ -9,7 +9,7 @@ class AppModule extends Module {
   List<Module> get imports => [FilmesModule(), PersonagensModule()];
   @override
   List<ModularRoute> get routes => [
-    ChildRoute('/', child: (context, args) => const SplashPage(),
+    ChildRoute('/', child: (context, args) => SplashPage(),
     transition: TransitionType.rightToLeftWithFade,
     ),
     ModuleRoute('/dashboardPage/', module: DashboardModule(),

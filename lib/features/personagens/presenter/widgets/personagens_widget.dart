@@ -12,11 +12,6 @@ class PersonagensWidget extends StatefulWidget {
 }
 
 class _PersonagensWidgetState extends State<PersonagensWidget> {
-  @override
-  void initState() {
-    widget.personagensBloc.add(PreencherPersonagensEvent());
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {

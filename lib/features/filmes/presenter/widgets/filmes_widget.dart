@@ -13,17 +13,6 @@ class FilmesWidget extends StatefulWidget {
 }
 
 class _FilmesWidgetState extends State<FilmesWidget> {
-  @override
-  void initState() {
-    super.initState();
-    widget.filmesBloc.add(PreencherListaFilmesEvent());
-  }
-
-  @override
-  void dispose() {
-    widget.filmesBloc.close();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +27,7 @@ class _FilmesWidgetState extends State<FilmesWidget> {
                 return Text(state.listaFilmeEntity.filmes[index].titulo);
               });
         } else {
-          return Container();
+          return Container(width: 60, height: 60, color: Colors.red,);
         }
       },
       listener: (context, state) {
