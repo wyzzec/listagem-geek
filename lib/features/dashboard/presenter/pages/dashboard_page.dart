@@ -17,10 +17,12 @@ class _DashBoardPageState extends State<DashBoardPage> {
         title: const Text('Listagem GEEK'),
         centerTitle: true,
       ),
-      body: Column(
-        children: [
-          ToggleButtonListasWidget(),
-        ],
+      body: Center(
+        child: Column(
+          children: [
+            ToggleButtonListasWidget(),
+          ],
+        ),
       ),
     ));
   }
