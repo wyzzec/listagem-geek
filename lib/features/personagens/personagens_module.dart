@@ -10,7 +10,7 @@ import 'package:listagem_geek/features/personagens/presenter/bloc/personagens_bl
 class PersonagensModule extends Module {
   @override
   List<Bind<Object>> get binds => [
-    Bind.singleton((i) => PersonagensBloc(iPreencherPersonagensUsecase: i())),
+    Bind.singleton((i) => PersonagensBloc(iPreencherPersonagensUsecase: i()), export: true),
     Bind<http.Client>((i) => http.Client(),export: true),
     Bind((i) => PersonagensDatasourceImpl(httpClient: i()), export: true),
     Bind((i) => PersonagemMapperImpl(), export: true),
