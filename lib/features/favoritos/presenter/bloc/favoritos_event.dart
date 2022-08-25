@@ -19,3 +19,5 @@ class FavoritosEventRemover extends FavoritosEvent {
 }
 
 class FavoritosEventEsvaziarLista extends FavoritosEvent {}
+
+class FavoritosEventCarregarDatabase extends FavoritosEvent {}

@@ -11,8 +11,12 @@ class FavoritosWidget extends StatefulWidget {
   @override
   State<FavoritosWidget> createState() => _FavoritosWidgetState();
 }
-
 class _FavoritosWidgetState extends State<FavoritosWidget> {
+@override
+  void initState() {
+    super.initState();
+    widget.favoritosBloc.add(FavoritosEventCarregarDatabase());
+  }
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -22,6 +26,7 @@ class _FavoritosWidgetState extends State<FavoritosWidget> {
           Color iconColor = Colors.black;
           if (state is FavoritosLoaded) {
             return ListView.separated(
+              shrinkWrap: true,
               separatorBuilder: (context, index) { return const Divider(thickness: 2, color: Colors.white,);},
                 addAutomaticKeepAlives: true,
 
@@ -38,20 +43,20 @@ class _FavoritosWidgetState extends State<FavoritosWidget> {
                     listTileTitle = personagemEntity.nome;
                     iconColor = Colors.green;
                   }
-                  return ListTile(
-                    shape: RoundedRectangleBorder(
-                      side: BorderSide(width: 1, color: iconColor),
+                  return Card(
 
+                    child: ListTile(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                        side: BorderSide(color: iconColor),
+                      ),
+                      title: Text(listTileTitle),
+                      trailing: IconButton(
+                          onPressed: () {
+                            widget.favoritosBloc.add(FavoritosEventRemover(filmeOuPersonagem: state.listaFavoritosEntity.favoritos[index]));
+                          },
+                          icon: const Icon(Icons.remove_circle_outline)),
                     ),
-                    title: Text(listTileTitle),
-                    trailing: IconButton(
-                        onPressed: () {
-                          if (state.listaFavoritosEntity.favoritos.isEmpty) {
-                            widget.favoritosBloc.add(FavoritosEventEsvaziarLista());
-                          }
-                          widget.favoritosBloc.add(FavoritosEventRemover(filmeOuPersonagem: state.listaFavoritosEntity.favoritos[index]));
-                        },
-                        icon: const Icon(Icons.remove_circle_outline)),
                   );
                 });
           }

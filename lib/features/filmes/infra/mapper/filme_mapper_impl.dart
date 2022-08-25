@@ -13,15 +13,14 @@ class FilmeMapperImpl implements IFilmeMapper {
         producer: filmeEntity.produtor,
         releaseDate: filmeEntity.dataDeLancamento);
   }
-
   @override
   FilmeEntity toFilmeEntity(FilmeDto filmeDto) {
     return FilmeEntity(
-        titulo: filmeDto.title!,
-        idDoEpisodio: filmeDto.episodeId!,
-        textoDeAbertura: filmeDto.openingCrawl!,
-        diretor: filmeDto.director!,
-        produtor: filmeDto.producer!,
-        dataDeLancamento: filmeDto.releaseDate!);
+        titulo: filmeDto.title == null ? '' : filmeDto.title!,
+        idDoEpisodio: filmeDto.episodeId == null ? 10 : filmeDto.episodeId!,
+        textoDeAbertura: filmeDto.openingCrawl == null ? '' : filmeDto.openingCrawl!,
+        diretor: filmeDto.director == null ? '' : filmeDto.director!,
+        produtor: filmeDto.producer == null ? '' : filmeDto.producer!,
+        dataDeLancamento: filmeDto.releaseDate == null ? '' :filmeDto.releaseDate!);
   }
 }

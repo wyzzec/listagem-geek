@@ -2,6 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:listagem_geek/features/favoritos/presenter/bloc/favoritos_bloc.dart';
+import 'package:listagem_geek/features/filmes/domain/entities/filme_entity.dart';
 import 'package:listagem_geek/features/filmes/presenter/bloc/filmes_bloc.dart';
 
 import '../../../../global/presenter/widgets/erro_no_servidor_popup_widget.dart';
@@ -26,25 +27,38 @@ class _FilmesWidgetState extends State<FilmesWidget> {
             builder: (context, state) {
               if (state is FilmesSucess) {
                 return ListView.separated(
+                  shrinkWrap: true,
                   separatorBuilder: (context, index) {
                     return const Divider(thickness: 2, color: Colors.white,);
                   },
                     addAutomaticKeepAlives: true,
                     itemCount: state.listaFilmeEntity.filmes.length,
                     itemBuilder: (context, index) {
-                      return ListTile(
-                        shape: const RoundedRectangleBorder(
-                          side: BorderSide(width: 1),
+                      bool ehFavorito = Modular.get<FavoritosBloc>().favoritosRepository.listaFavoritosEntity.favoritos.any((element) {
+                        if (element is FilmeEntity){
+                          if (element.titulo == state.listaFilmeEntity.filmes[index].titulo){
+                            return true;
+                          }
+                        }
+                        return false;
+                      });
+                      return Card(
+                        child: ListTile(
+                          shape: RoundedRectangleBorder(
+                            side: const BorderSide(width: 1),
+                            borderRadius: BorderRadius.circular(12),
 
-                        ),
-                        title: Text(state.listaFilmeEntity.filmes[index].titulo),
-                        trailing: IconButton(
-                          icon: Icon(Modular.get<FavoritosBloc>().listaFavoritosEntity.favoritos.contains(state.listaFilmeEntity.filmes[index])
-                              ? Icons.favorite
-                              : Icons.favorite_border),
-                          onPressed: () {
-                            widget.favoritosBloc.add(FavoritosEventAdicionar(filmeOuPersonagem: state.listaFilmeEntity.filmes[index]));
-                          },
+                          ),
+                          title: Text(state.listaFilmeEntity.filmes[index].titulo),
+                          trailing: IconButton(
+                            icon: Icon(ehFavorito
+                                ? Icons.favorite
+                                : Icons.favorite_border),
+                            onPressed: ehFavorito ? null : () {
+
+                              widget.favoritosBloc.add(FavoritosEventAdicionar(filmeOuPersonagem: state.listaFilmeEntity.filmes[index]));
+                            },
+                          ),
                         ),
                       );
                     });

@@ -10,6 +10,6 @@ class PersonagemMapperImpl extends IPersonagemMapper {
 
   @override
   PersonagemEntity toPersonagemEntity(PersonagemDto personagemDto) {
-    return PersonagemEntity(nome: personagemDto.name!, genero: personagemDto.gender!);
+    return PersonagemEntity(nome: personagemDto.name == null ? '' : personagemDto.name!, genero: personagemDto.gender == null ? '' : personagemDto.gender!);
   }
 }
