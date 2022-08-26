@@ -5,13 +5,13 @@ abstract class FilmesState {}
 
 class FilmesInitial extends FilmesState {}
 class FilmesSucess extends FilmesState {
-  ListaFilmeEntity listaFilmeEntity;
+  final ListaFilmeEntity listaFilmeEntity;
   FilmesSucess({
     required this.listaFilmeEntity,
   });
 }
 class FilmesError extends FilmesState{
-  IFilmesError iFilmesError;
+  final IFilmesError iFilmesError;
 
   FilmesError({
     required this.iFilmesError,

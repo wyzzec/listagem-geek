@@ -48,10 +48,10 @@ class _ToggleButtonListasWidgetState extends State<ToggleButtonListasWidget> {
             ],
           ),
           const SizedBox(height: 20,),
-          Expanded(
+          Flexible(
             child: SizedBox(
                 width: double.infinity,
-                height: 500,
+                height: 450,
                 child: widget.listaWidgets[indexLista]),
           ),
         ],

@@ -1,16 +1,2 @@
-# listagem_geek
-
-Listagem de personagens e filmes da franquia Star Wars.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+para que o fluttermoji não resete o estado do avatar quando fechar o widget fluttermojiCustomizer, é preciso alterar o "dispose" do widget para retirar o metodo "fluttermojiController.restoreState();", 
+que sempre retorna para o estado anterior da edição.

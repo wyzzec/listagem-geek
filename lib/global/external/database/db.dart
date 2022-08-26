@@ -14,9 +14,11 @@ class DB {
     }
     return await _initDatabase();
   }
+
   get deletarDatabase async {
     return await _deleteDatabase();
   }
+
   _deleteDatabase() async {
     _database = null;
     return await deleteDatabase(join(await getDatabasesPath(), 'listagemGeek.db'));
@@ -29,9 +31,12 @@ class DB {
       onCreate: _onCreate,
     );
   }
+
   _onCreate(db, versao) async {
     await db.execute(_favoritosFilme);
     await db.execute(_favoritosPersonagem);
+    await db.execute(_fluttermojiData);
+    await db.insert('fluttermoji_data', {'fluttermoji' : 'testeFluttermoji'});
   }
 
   String get _favoritosFilme => '''
@@ -53,5 +58,10 @@ class DB {
     gender TEXT
   );
   ''';
-
+  String get _fluttermojiData => '''
+  CREATE TABLE fluttermoji_data (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    fluttermoji TEXT
+  );
+  ''';
 }
