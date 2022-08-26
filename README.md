@@ -5,7 +5,7 @@
 ## 📁 Acesso
 
 **Para visualizar o projeto, [clique aqui](https://github.com/wyzzec/listagem-geek).**  
-**Para baixar o APK, baixe pelo repositório ou [clique aqui](https://drive.google.com/file/d/1Zd97-BguC0sUqTL-PpgWqJvvbWBC4DhH/view?usp=sharing).**
+**Para baixar o APK, baixe pelo repositório ou [clique aqui](https://drive.google.com/file/d/1mnN51tBelJ0L34EveJ0PJDZlonWpjRDM/view?usp=sharing).**
 
 ## 🛠️ Abrir e rodar o projeto
 
@@ -18,6 +18,6 @@ Mais informações sobre como configurar o AVD manager para android,
 
 Erros conhecidos:  
 1- Para que o fluttermoji não resete o estado do avatar quando fechar o widget fluttermojiCustomizer, é preciso alterar o "dispose" do widget para retirar o metodo "fluttermojiController.restoreState();", 
-que sempre retorna para o estado anterior da edição. (Ainda assim, a funcionalidade de salvar e ler no banco de dados utilizando sqflite está normal.)
-2- A API as vezes demora bastante tempo para responder. (talvez mecanismo anti ataque.)
-3- Por algum motivo, a versão release fica com tela branca após abrir. (resolvendo)
+que sempre retorna para o estado anterior da edição. (Ainda assim, a funcionalidade de salvar e ler no banco de dados utilizando sqflite está normal.)  
+2- A API as vezes demora bastante tempo para responder. (Talvez mecanismo anti ataque.)  
+3- Por algum motivo, a versão release fica com tela branca após abrir. (Resolvido. Ao abrir o app pela primeira vez, o banco de dados consultava um valor inválido para o metodo decode do fluttermoji.)  

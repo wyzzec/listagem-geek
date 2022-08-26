@@ -36,7 +36,7 @@ class DB {
     await db.execute(_favoritosFilme);
     await db.execute(_favoritosPersonagem);
     await db.execute(_fluttermojiData);
-    await db.insert('fluttermoji_data', {'fluttermoji' : 'testeFluttermoji'});
+    await db.insert('fluttermoji_data', {'fluttermoji' : ''});
   }
 
   String get _favoritosFilme => '''
