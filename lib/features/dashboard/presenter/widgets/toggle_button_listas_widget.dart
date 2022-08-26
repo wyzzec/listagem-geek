@@ -15,47 +15,45 @@ class _ToggleButtonListasWidgetState extends State<ToggleButtonListasWidget> {
   List<bool> isSelected = [true, false, false];
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Column(
-        children: [
-          ToggleButtons(
-            onPressed: (int index) {
-              setState(() {
-                indexLista = index;
-                for (int buttonIndex = 0; buttonIndex < isSelected.length; buttonIndex++) {
-                  if (buttonIndex == index) {
-                    isSelected[buttonIndex] = true;
-                  } else {
-                    isSelected[buttonIndex] = false;
-                  }
+    return Column(
+      children: [
+        ToggleButtons(
+          onPressed: (int index) {
+            setState(() {
+              indexLista = index;
+              for (int buttonIndex = 0; buttonIndex < isSelected.length; buttonIndex++) {
+                if (buttonIndex == index) {
+                  isSelected[buttonIndex] = true;
+                } else {
+                  isSelected[buttonIndex] = false;
                 }
-              });
-            },
-            isSelected: isSelected,
-            children:  <Widget>[
-              Padding(
-                padding: const EdgeInsets.all(4.0),
-                child: Row(children: const [Icon(Icons.movie), SizedBox(width: 3,),Text('Filmes'), ],),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(4.0),
-                child: Row(children: const [Icon(Icons.person), SizedBox(width: 3,),Text('Personagens'), ],),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(4.0),
-                child: Row(children: const [Icon(Icons.favorite), SizedBox(width: 3,),Text('Favoritos'), ],),
-              ),
-            ],
-          ),
-          const SizedBox(height: 20,),
-          Flexible(
-            child: SizedBox(
-                width: double.infinity,
-                height: 450,
-                child: widget.listaWidgets[indexLista]),
-          ),
-        ],
-      ),
+              }
+            });
+          },
+          isSelected: isSelected,
+          children:  <Widget>[
+            Padding(
+              padding: const EdgeInsets.all(4.0),
+              child: Row(children: const [Icon(Icons.movie), SizedBox(width: 3,),Text('Filmes'), ],),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(4.0),
+              child: Row(children: const [Icon(Icons.person), SizedBox(width: 3,),Text('Personagens'), ],),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(4.0),
+              child: Row(children: const [Icon(Icons.favorite), SizedBox(width: 3,),Text('Favoritos'), ],),
+            ),
+          ],
+        ),
+        const SizedBox(height: 20,),
+        Flexible(
+          child: SizedBox(
+              width: double.infinity,
+              height: 450,
+              child: widget.listaWidgets[indexLista]),
+        ),
+      ],
     );
   }
 }
