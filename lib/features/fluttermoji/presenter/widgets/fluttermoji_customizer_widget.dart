@@ -1,10 +1,7 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
 import 'package:fluttermoji/fluttermoji.dart';
 import 'package:fluttermoji/fluttermojiCustomizer.dart';
-
-import '../../infra/repositories/fluttermoji_repository.dart';
 
 class FluttermojiCustomizerWidget extends StatefulWidget {
   const FluttermojiCustomizerWidget({Key? key}) : super(key: key);
@@ -17,10 +14,6 @@ class _FluttermojiCustomizerState extends State<FluttermojiCustomizerWidget> {
   FluttermojiController fluttermojiController = FluttermojiController();
   FluttermojiFunctions fluttermojiFunctions = FluttermojiFunctions();
   @override
-  void dispose() {
-    saveFluttermoji();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +29,5 @@ class _FluttermojiCustomizerState extends State<FluttermojiCustomizerWidget> {
     );
   }
 
-  saveFluttermoji() async {
-    Modular.get<FluttermojiRepository>().setFluttermojiData(await fluttermojiFunctions.encodeMySVGtoString());
-  }
+
 }

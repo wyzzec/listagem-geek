@@ -22,11 +22,6 @@ class _DashBoardPageState extends State<DashBoardPage> {
   ];
   FluttermojiFunctions fluttermojiFunctions = FluttermojiFunctions();
 
-  @override
-  void initState() {
-    super.initState();
-    loadFluttermoji();
-  }
 
   @override
   void dispose() {
@@ -35,6 +30,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
 
   @override
   Widget build(BuildContext context) {
+    loadFluttermoji();
     return SafeArea(
         child: Scaffold(
       appBar: AppBar(
@@ -79,10 +75,10 @@ class _DashBoardPageState extends State<DashBoardPage> {
                       if (siteOficial[0] == true) {
                         siteOficial[0] = !siteOficial[0];
                         avatar[0] = !avatar[0];
-                        loadFluttermoji();
+                        saveFluttermoji();
                       } else {
                         avatar[0] = !avatar[0];
-                        loadFluttermoji();
+                        saveFluttermoji();
                       }
                     });
                   },
@@ -114,6 +110,11 @@ class _DashBoardPageState extends State<DashBoardPage> {
   }
 
   loadFluttermoji() {
-    fluttermojiFunctions.decodeFluttermojifromString(Modular.get<FluttermojiRepository>().fluttermojiData);
+    if (Modular.get<FluttermojiRepository>().fluttermojiData != ''){
+      fluttermojiFunctions.decodeFluttermojifromString(Modular.get<FluttermojiRepository>().fluttermojiData);
+    }
+  }
+  saveFluttermoji() async {
+    Modular.get<FluttermojiRepository>().setFluttermojiData(await fluttermojiFunctions.encodeMySVGtoString());
   }
 }
