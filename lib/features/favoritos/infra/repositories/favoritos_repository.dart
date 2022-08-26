@@ -5,8 +5,8 @@ import 'package:listagem_geek/features/filmes/infra/mapper/filme_mapper_impl.dar
 import 'package:listagem_geek/features/personagens/domain/entities/personagem_entity.dart';
 import 'package:listagem_geek/features/personagens/infra/mapper/personagem_mapper_impl.dart';
 import 'package:sqflite/sqflite.dart';
+import '../../../../global/external/database/db.dart';
 import '../../../personagens/infra/dto/personagem_dto.dart';
-import '../../external/database/db.dart';
 
 class FavoritosRepository {
   late Database? db;

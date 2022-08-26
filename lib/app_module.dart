@@ -4,6 +4,7 @@ import 'package:listagem_geek/features/dashboard/presenter/pages/splash_page.dar
 import 'package:listagem_geek/features/favoritos/infra/repositories/favoritos_repository.dart';
 import 'package:listagem_geek/features/favoritos/presenter/bloc/favoritos_bloc.dart';
 import 'package:listagem_geek/features/filmes/filmes_module.dart';
+import 'package:listagem_geek/features/fluttermoji/infra/repositories/fluttermoji_repository.dart';
 import 'package:listagem_geek/features/personagens/personagens_module.dart';
 
 class AppModule extends Module {
@@ -13,7 +14,8 @@ class AppModule extends Module {
   @override
   List<Bind<Object>> get binds => [
     Bind.singleton((i) => FavoritosBloc()),
-    Bind.singleton((i) => FavoritosRepository())
+    Bind.singleton((i) => FavoritosRepository()),
+    Bind.singleton((i) => FluttermojiRepository())
   ];
 
   @override

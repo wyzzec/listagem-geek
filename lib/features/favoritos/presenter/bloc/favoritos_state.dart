@@ -5,7 +5,7 @@ abstract class FavoritosState {}
 
 class FavoritosInitial extends FavoritosState {}
 class FavoritosLoaded  extends FavoritosState{
-  ListaFavoritosEntity listaFavoritosEntity;
+  final ListaFavoritosEntity listaFavoritosEntity;
 
   FavoritosLoaded({
     required this.listaFavoritosEntity,

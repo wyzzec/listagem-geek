@@ -4,14 +4,14 @@ part of 'favoritos_bloc.dart';
 abstract class FavoritosEvent {}
 
 class FavoritosEventAdicionar extends FavoritosEvent {
-  Object filmeOuPersonagem;
+  final Object filmeOuPersonagem;
 
   FavoritosEventAdicionar({
     required this.filmeOuPersonagem,
   });
 }
 class FavoritosEventRemover extends FavoritosEvent {
-  Object filmeOuPersonagem;
+  final Object filmeOuPersonagem;
 
   FavoritosEventRemover({
     required this.filmeOuPersonagem,
