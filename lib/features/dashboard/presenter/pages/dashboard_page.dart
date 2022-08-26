@@ -98,11 +98,10 @@ class _DashBoardPageState extends State<DashBoardPage> {
                 ),
               ],
             ),
-
             const SizedBox(
               height: 10,
             ),
-            if (siteOficial[0] == false && avatar[0] == false) ToggleButtonListasWidget(),
+            if (siteOficial[0] == false && avatar[0] == false) Expanded(child: ToggleButtonListasWidget()),
             if (siteOficial[0] == true && avatar[0] == false)
               const Expanded(
                 child: SizedBox(width: 500, height: 500, child: SiteOficialWidget()),
@@ -113,7 +112,8 @@ class _DashBoardPageState extends State<DashBoardPage> {
       ),
     ));
   }
- loadFluttermoji() {
-   fluttermojiFunctions.decodeFluttermojifromString(Modular.get<FluttermojiRepository>().fluttermojiData);
- }
+
+  loadFluttermoji() {
+    fluttermojiFunctions.decodeFluttermojifromString(Modular.get<FluttermojiRepository>().fluttermojiData);
+  }
 }

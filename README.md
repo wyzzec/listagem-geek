@@ -19,3 +19,5 @@ Mais informações sobre como configurar o AVD manager para android,
 Erros conhecidos:  
 1- Para que o fluttermoji não resete o estado do avatar quando fechar o widget fluttermojiCustomizer, é preciso alterar o "dispose" do widget para retirar o metodo "fluttermojiController.restoreState();", 
 que sempre retorna para o estado anterior da edição. (Ainda assim, a funcionalidade de salvar e ler no banco de dados utilizando sqflite está normal.)
+2- A API as vezes demora bastante tempo para responder. (talvez mecanismo anti ataque.)
+3- Por algum motivo, a versão release fica com tela branca após abrir. (resolvendo)
